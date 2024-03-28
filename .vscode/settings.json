@@ -1,0 +1,21 @@
+{
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar",
+        "c:\\Program Files\\Eclipse Adoptium\\javafx-sdk-11.0.2\\lib\\javafx.base.jar",
+        "c:\\Program Files\\Eclipse Adoptium\\javafx-sdk-11.0.2\\lib\\javafx.controls.jar",
+        "c:\\Program Files\\Eclipse Adoptium\\javafx-sdk-11.0.2\\lib\\javafx.fxml.jar",
+        "c:\\Program Files\\Eclipse Adoptium\\javafx-sdk-11.0.2\\lib\\javafx.graphics.jar",
+        "c:\\Program Files\\Eclipse Adoptium\\javafx-sdk-11.0.2\\lib\\javafx.media.jar",
+        "c:\\Program Files\\Eclipse Adoptium\\javafx-sdk-11.0.2\\lib\\javafx.swing.jar",
+        "c:\\Program Files\\Eclipse Adoptium\\javafx-sdk-11.0.2\\lib\\javafx.web.jar",
+        "c:\\Program Files\\Eclipse Adoptium\\javafx-sdk-11.0.2\\lib\\javafx-swt.jar",
+        "c:\\Program Files\\Eclipse Adoptium\\jdk-11.0.21.9-hotspot\\lib\\jrt-fs.jar",
+        "c:\\Users\\Max\\Downloads\\sqljdbc_12.6.1.0_enu\\sqljdbc_12.6\\enu\\jars\\mssql-jdbc-12.6.1.jre8.jar",
+        "c:\\Users\\Max\\Downloads\\sqljdbc_12.6.1.0_enu\\sqljdbc_12.6\\enu\\jars\\mssql-jdbc-12.6.1.jre8-javadoc.jar",
+        "c:\\Users\\Max\\Downloads\\sqljdbc_12.6.1.0_enu\\sqljdbc_12.6\\enu\\jars\\mssql-jdbc-12.6.1.jre8-sources.jar",
+        "c:\\Users\\Max\\Downloads\\sqljdbc_12.6.1.0_enu\\sqljdbc_12.6\\enu\\jars\\mssql-jdbc-12.6.1.jre11.jar",
+        "c:\\Users\\Max\\Downloads\\sqljdbc_12.6.1.0_enu\\sqljdbc_12.6\\enu\\jars\\mssql-jdbc-12.6.1.jre11-javadoc.jar",
+        "c:\\Users\\Max\\Downloads\\sqljdbc_12.6.1.0_enu\\sqljdbc_12.6\\enu\\jars\\mssql-jdbc-12.6.1.jre11-sources.jar"
+    ]
+    
+}

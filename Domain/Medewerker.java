@@ -23,7 +23,7 @@ public class Medewerker {
     }
 
     public void setNaamMedewerker(String naamMedewerker) {
-        naamMedewerker = naamMedewerker;
+        this.naamMedewerker = naamMedewerker;
     }
 
     public String getEmail() {
@@ -31,7 +31,7 @@ public class Medewerker {
     }
 
     public void setEmail(String email) {
-        email = email;
+        this.email = email;
     }
 
     public String getWachtwoord() {
@@ -39,7 +39,7 @@ public class Medewerker {
     }
 
     public void setWachtwoord(String wachtwoord) {
-        wachtwoord = wachtwoord;
+        this.wachtwoord = wachtwoord;
     }
 
     public LocalDate getGeboortedaum() {
@@ -47,7 +47,7 @@ public class Medewerker {
     }
 
     public void setGeboortedatum(LocalDate geboortedatum) {
-        geboortedatum = geboortedatum;
+        this.geboortedatum = geboortedatum;
     }
 
     @Override
