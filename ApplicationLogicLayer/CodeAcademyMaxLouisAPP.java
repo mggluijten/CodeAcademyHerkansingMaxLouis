@@ -16,7 +16,7 @@ public class CodeAcademyMaxLouisAPP extends Application{
     private static Stage stg;
     private static Medewerker ingelogdeMedewerker;
 
-    // Schermgrootte
+    // Screensize
     private static final int SCREEN_WIDTH = 1280;
     private static final int SCREEN_HEIGHT = 800;
 
