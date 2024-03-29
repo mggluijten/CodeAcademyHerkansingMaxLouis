@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<ScrollPane prefHeight="1545.0" prefWidth="1253.0" style="-fx-background-color: #FBC4AB;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.CursistenOverzicht">
+   <content>
+      <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1415.0" prefWidth="1253.0">
+         <children>
+            <AnchorPane layoutX="1.0" layoutY="139.0" prefHeight="412.0" prefWidth="1237.0">
+               <children>
+                  <TableView fx:id="tableView" layoutX="5.0" prefHeight="419.0" prefWidth="1239.0" style="-fx-background-color: #FFF8F0;" AnchorPane.bottomAnchor="-7.0" AnchorPane.rightAnchor="-7.0">
+                    <columns>
+                        <TableColumn fx:id="EmailCursist" prefWidth="189.0" text="Email" />
+                        <TableColumn fx:id="VoornaamCursist" prefWidth="118.0" text="Voornaam" />
+                        <TableColumn fx:id="AchternaamCursist" prefWidth="142.0" text="Achternaam" />
+                        <TableColumn fx:id="GeboortedatumCursist" prefWidth="111.0" text="Geboortedatum" />
+                        <TableColumn fx:id="GeslachCursist" prefWidth="73.0" text="Geslacht" />
+                        <TableColumn fx:id="StraatnaamCursist" prefWidth="142.0" text="Straatnaam" />
+                        <TableColumn fx:id="HuisnummerCursist" prefWidth="97.0" text="Huisnummer" />
+                        <TableColumn fx:id="PostcodeCursist" prefWidth="90.0" text="Postcode" />
+                        <TableColumn fx:id="WoonplaatsCurist" prefWidth="161.0" text="Woonplaats" />
+                        <TableColumn fx:id="LandCursist" prefWidth="115.0" text="Land" />
+                    </columns>
+                  </TableView>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="87.0" layoutY="-4.0" prefHeight="84.0" prefWidth="1170.0" style="-fx-background-color: #F08080;">
+               <children>
+                  <Text fill="WHITE" layoutX="43.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Arial Bold'; -fx-font-size: 25px;" text="Cursisten Overzicht">
+                  </Text>
+                  <Button fx:id="VerwijderenButton1" layoutX="1026.0" layoutY="32.0" mnemonicParsing="false" onAction="#backToMenu" style="-fx-background-color: #F4978E; -fx-text-fill: WHITE;" text="Terug naar Menu">
+                     <font>
+                        <Font name="Arial Bold" size="13.0" />
+                     </font>
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </Button>
+               </children>
+            </AnchorPane>
+            <ImageView fitHeight="80.0" fitWidth="87.0" pickOnBounds="true">
+               <image>
+                  <Image url="@../img/LOGOCODEACADEMY.png" />
+               </image>
+            </ImageView>
+            <AnchorPane layoutX="-4.0" layoutY="80.0" prefHeight="59.0" prefWidth="805.0">
+               <children>
+                  <Text fill="#e86043" layoutX="52.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Arial Bold'; -fx-font-size: 20px;" text="Overzicht Cursisten">
+                  </Text>
+               </children>
+            </AnchorPane>
+            <!-- Button styles updated to match theme -->
+            <Button fx:id="VerwijderenButton" layoutX="1152.0" layoutY="97.0" mnemonicParsing="false" onAction="#deleteCursist" prefHeight="24.0" prefWidth="87.0" style="-fx-background-color: #F4978E; -fx-text-fill: WHITE;" text="Verwijderen">
+               <font>
+                  <Font name="Arial Bold" size="11.0" />
+               </font>
+            </Button>
+            <Button fx:id="BewerkenButton" layoutX="1037.0" layoutY="97.0" mnemonicParsing="false" onAction="#adjustCursist" prefHeight="24.0" prefWidth="98.0" style="-fx-background-color: #F4978E; -fx-text-fill: WHITE;" text="Bewerken">
+               <font>
+                  <Font name="Arial Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button fx:id="ToevoegenButton" layoutX="918.0" layoutY="97.0" mnemonicParsing="false" onAction="#addNewCursist" prefHeight="24.0" prefWidth="100.0" style="-fx-background-color: #F4978E; -fx-text-fill: WHITE;" text="Toevoegen">
+               <font>
+                  <Font name="Arial Bold" size="12.0" />
+               </font>
+            </Button>
+            <!-- Continue with the same theme adjustments for Text, Label, and PieChart -->
+         </children>
+      </Pane>
+   </content>
+</ScrollPane>

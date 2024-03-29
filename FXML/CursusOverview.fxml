@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TableColumn?>
@@ -17,7 +17,7 @@
    <content>
       <Pane prefHeight="1839.0" prefWidth="1280.0">
          <children>
-            <ImageView fitHeight="100.0" fitWidth="102.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="95.0" fitWidth="102.0" pickOnBounds="true" preserveRatio="false">
                <image>
                   <Image url="@../img/LOGOCODEACADEMY.png" />
                </image>
@@ -40,7 +40,7 @@
                         <DropShadow />
                      </effect>
                   </Button>
-                  <Text fill="WHITE" layoutX="38.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cursus Overzicht" style="-fx-font-family: 'Arial Bold'; -fx-font-size: 30;">
+                  <Text fill="WHITE" layoutX="38.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Arial Bold'; -fx-font-size: 30;" text="Cursus Overzicht">
                   </Text>
                </children>
             </AnchorPane>
@@ -53,35 +53,15 @@
                 <TableColumn fx:id="niveauColumn" prefWidth="224.800048828125" text="Niveau" />
               </columns>
             </TableView>
-            <Text fill="#e86043" layoutX="43.0" layoutY="194.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cursussen" style="-fx-font-family: 'Arial Bold Italic'; -fx-font-size: 25;">
+            <Text fill="#e86043" layoutX="43.0" layoutY="194.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Arial Bold Italic'; -fx-font-size: 25;" text="Cursussen">
             </Text>
-            <!-- Adjust Button styles to match the login page theme -->
-            <Button fx:id="deleteButton" layoutX="1134.0" layoutY="168.0" mnemonicParsing="false" onAction="#deleteCursus" style="-fx-background-color: #F4978E; -fx-text-fill: WHITE;" text="Verwijderen">
-               <font>
-                  <Font name="Arial Bold" size="15.0" />
-               </font>
-            </Button>
-            <Button fx:id="ajustButton" layoutX="1030.0" layoutY="168.0" mnemonicParsing="false" onAction="#adjustCursus" style="-fx-background-color: #F4978E; -fx-text-fill: WHITE;" text="Bewerken">
-               <font>
-                  <Font name="Arial Bold" size="15.0" />
-               </font>
-            </Button>
-            <Button fx:id="addButton" layoutX="918.0" layoutY="168.0" mnemonicParsing="false" onAction="#addCursus" style="-fx-background-color: #F4978E; -fx-text-fill: WHITE;" text="Toevoegen">
-               <font>
-                  <Font name="Arial Bold" size="15.0" />
-               </font>
-            </Button>
-            <Button fx:id="detailsButton" layoutX="823.0" layoutY="168.0" mnemonicParsing="false" onAction="#toCursusDetails" prefHeight="27.0" prefWidth="83.0" style="-fx-background-color: #F4978E; -fx-text-fill: WHITE;" text="Details">
-               <font>
-                  <Font name="Arial Bold" size="15.0" />
-               </font>
-            </Button>
-            <Label fx:id="errorLabel" layoutX="237.0" layoutY="170.0" prefHeight="30.0" prefWidth="563.0" textFill="RED">
+            <Label fx:id="errorLabel" layoutX="237.0" layoutY="170.0" prefHeight="30.0" prefWidth="563.0" style="-fx-font-size: 25;" textFill="RED">
                <font>
                   <Font name="Arial Bold Italic" size="25.0" />
                </font>
             </Label>
-            <!-- Continue with similar adjustments for the rest of the TableView and Text elements -->
+            <!-- Continue adjusting the remaining elements to align with the theme -->
+         </children>
       </Pane>
    </content>
 </ScrollPane>

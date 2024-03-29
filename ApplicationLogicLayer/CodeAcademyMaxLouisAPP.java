@@ -6,7 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import Domain_layer.Medewerker;
+import Domain.Medewerker;
 
 public class CodeAcademyMaxLouisAPP extends Application{
     public static void main(String[] args) {
@@ -53,7 +53,7 @@ public class CodeAcademyMaxLouisAPP extends Application{
  
     public void changeScene(String fxmlPath) throws IOException {
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(CodecademyApp.class.getResource(fxmlPath));
+        loader.setLocation(CodeAcademyMaxLouisAPP.class.getResource(fxmlPath));
         Parent root = loader.load(); 
 
         // Controleer of stg niet null is
