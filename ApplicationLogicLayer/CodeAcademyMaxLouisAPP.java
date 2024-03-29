@@ -58,7 +58,7 @@ public class CodeAcademyMaxLouisAPP extends Application{
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(CodeAcademyMaxLouisAPP.class.getResource(fxmlPath));
         Parent root = loader.load(); 
-
+        System.out.println("Laden van: " + fxmlPath);
         // Controleer of stg niet null is
         if (stg != null) {
             stg.setWidth(SCREEN_WIDTH);

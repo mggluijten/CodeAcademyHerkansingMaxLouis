@@ -242,6 +242,6 @@ public class AdjustCursist {
 
     @FXML
     void backToOverview(ActionEvent event) throws IOException {
-        m.changeScene("/FXML/CursistOverview.fxml");
+        m.changeScene("/FXML/CursistenOverzicht.fxml");
     }
 }
