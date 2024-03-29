@@ -65,12 +65,12 @@
                   <Font name="Arial Bold" size="11.0" />
                </font>
             </Button>
-            <Button fx:id="BewerkenButton" layoutX="1037.0" layoutY="97.0" mnemonicParsing="false" onAction="#adjustCursist" prefHeight="24.0" prefWidth="98.0" style="-fx-background-color: #F4978E; -fx-text-fill: WHITE;" text="Bewerken">
+            <Button fx:id="BewerkenButton" layoutX="1037.0" layoutY="97.0" mnemonicParsing="false" onAction="#alterCursist" prefHeight="24.0" prefWidth="98.0" style="-fx-background-color: #F4978E; -fx-text-fill: WHITE;" text="Bewerken">
                <font>
                   <Font name="Arial Bold" size="12.0" />
                </font>
             </Button>
-            <Button fx:id="ToevoegenButton" layoutX="918.0" layoutY="97.0" mnemonicParsing="false" onAction="#addNewCursist" prefHeight="24.0" prefWidth="100.0" style="-fx-background-color: #F4978E; -fx-text-fill: WHITE;" text="Toevoegen">
+            <Button fx:id="ToevoegenButton" layoutX="918.0" layoutY="97.0" mnemonicParsing="false" onAction="#addCursist" prefHeight="24.0" prefWidth="100.0" style="-fx-background-color: #F4978E; -fx-text-fill: WHITE;" text="Toevoegen">
                <font>
                   <Font name="Arial Bold" size="12.0" />
                </font>

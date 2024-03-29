@@ -29,14 +29,13 @@ import Domain.GeslachtCursist;
 public class CursistenOverzicht {
     @FXML
     private Label aantalLabel;
-    
 
     @FXML
     private Label naamMedewerkerText2;
 
     @FXML
     private Label beoordelingText2;
-    
+
     @FXML
     private Label cursusNaamText2;
 
@@ -45,7 +44,7 @@ public class CursistenOverzicht {
 
     @FXML
     private Label beoordelingText1;
-    
+
     @FXML
     private Label cursusNaamText1;
 
@@ -54,7 +53,7 @@ public class CursistenOverzicht {
 
     @FXML
     private Label beoordelingText3;
-    
+
     @FXML
     private Label cursusNaamText3;
 
@@ -63,7 +62,7 @@ public class CursistenOverzicht {
 
     @FXML
     private Label beoordelingText4;
-    
+
     @FXML
     private Label cursusNaamText4;
 
@@ -79,7 +78,7 @@ public class CursistenOverzicht {
     @FXML
     private ChoiceBox<GeslachtCursist> choiceGender;
 
-    private GeslachtCursist[] gender = {GeslachtCursist.M, GeslachtCursist.V, GeslachtCursist.X};
+    private GeslachtCursist[] gender = { GeslachtCursist.M, GeslachtCursist.V, GeslachtCursist.X };
 
     @FXML
     private ChoiceBox<String> choiceCursist;
@@ -128,10 +127,10 @@ public class CursistenOverzicht {
 
     @FXML
     private Button VerwijderenButton;
-    
+
     @FXML
     private Label achternaamCursistLabel;
- 
+
     @FXML
     private Label emailCursistLabel;
 
@@ -161,7 +160,7 @@ public class CursistenOverzicht {
 
     @FXML
     private Label cursusNaamLabel4;
-    
+
     @FXML
     private Label naamMedewerkerLabel1;
 
@@ -177,7 +176,6 @@ public class CursistenOverzicht {
     CodeAcademyMaxLouisAPP m = new CodeAcademyMaxLouisAPP();
     DatabaseConnection databaseConnection = new DatabaseConnection();
 
-
     @FXML
     void addCursist(ActionEvent event) throws IOException {
         m.changeScene("/FXML/AddCursist.fxml");
@@ -189,10 +187,10 @@ public class CursistenOverzicht {
     }
 
     @FXML
-    void AlterCursist(ActionEvent event) throws IOException {
+    void alterCursist(ActionEvent event) throws IOException {
 
         Cursist selectedCursist = tableView.getSelectionModel().getSelectedItem();
-    
+
         if (selectedCursist != null) {
             openAlterCursistForm(selectedCursist);
         } else {
@@ -204,22 +202,21 @@ public class CursistenOverzicht {
     private void openAlterCursistForm(Cursist selectedCursist) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/AlterCursist.fxml"));
         Parent root = loader.load();
-        AdjustCursist controller = loader.getController();  
-    
+        AdjustCursist controller = loader.getController();
+
         controller.setCursistData(selectedCursist);
-    
+
         m.changeSceneS(root, 1280, 800);
     }
-    
 
-    //Methode om geselecteerde cursist te verwijderen
+    // Methode om geselecteerde cursist te verwijderen
     @FXML
     void deleteCursist(ActionEvent event) throws SQLException {
         Cursist selectedCursist = tableView.getSelectionModel().getSelectedItem();
 
         if (selectedCursist != null) {
             deleteCursist(selectedCursist);
-            fillTableView(); 
+            fillTableView();
         } else {
             errorOverview.setText("Selecteer een cursist om te verwijderen.");
         }
@@ -259,36 +256,35 @@ public class CursistenOverzicht {
             try {
                 String query = "SELECT * FROM Cursist";
                 ResultSet resultSet = databaseConnection.executeSQLSelectStatement(query);
-    
+
                 if (resultSet != null) {
                     ObservableList<Cursist> cursistenList = FXCollections.observableArrayList();
-    
+
                     while (resultSet.next()) {
                         String email = resultSet.getString("Email");
                         String voornaam = resultSet.getString("Voornaam");
                         String achternaam = resultSet.getString("Achternaam");
-                    
+
                         // Gebruik getTimestamp voor datumkolommen (kon anders de gegevens niet ophalen)
                         Timestamp timestamp = resultSet.getTimestamp("Geboortedatum");
                         LocalDate geboortedatum = timestamp.toLocalDateTime().toLocalDate();
 
                         String geslachtStr = resultSet.getString("Geslacht");
-                        GeslachtCursist geslacht = GeslachtCursist.valueOf(geslachtStr); // Converteer de string naar het Geslacht-enum
-                    
+                        GeslachtCursist geslacht = GeslachtCursist.valueOf(geslachtStr); // Converteer de string naar
+                                                                                         // het Geslacht-enum
+
                         String straatnaam = resultSet.getString("Straatnaam");
                         String huisnummer = resultSet.getString("Huisnummer");
                         String postcode = resultSet.getString("Postcode");
                         String woonplaats = resultSet.getString("Woonplaats");
                         String land = resultSet.getString("Land");
-                    
 
-                        Cursist cursist = new Cursist(email, voornaam, achternaam, geboortedatum, geslacht, straatnaam, huisnummer, postcode, woonplaats, land);
-                    
+                        Cursist cursist = new Cursist(email, voornaam, achternaam, geboortedatum, geslacht, straatnaam,
+                                huisnummer, postcode, woonplaats, land);
 
                         cursistenList.add(cursist);
-                    
+
                     }
-    
 
                     tableView.setItems(cursistenList);
                 }
@@ -300,7 +296,8 @@ public class CursistenOverzicht {
         }
     }
 
-    @FXML void initTableView() throws SQLException{
+    @FXML
+    void initTableView() throws SQLException {
         EmailCursist.setCellValueFactory(new PropertyValueFactory<>("email"));
         VoornaamCursist.setCellValueFactory(new PropertyValueFactory<>("voornaam"));
         AchternaamCursist.setCellValueFactory(new PropertyValueFactory<>("achternaam"));
@@ -311,23 +308,15 @@ public class CursistenOverzicht {
         PostcodeCursist.setCellValueFactory(new PropertyValueFactory<>("postcode"));
         WoonplaatsCurist.setCellValueFactory(new PropertyValueFactory<>("woonplaats"));
         LandCursist.setCellValueFactory(new PropertyValueFactory<>("land"));
-    
+
         fillTableView();
     }
 
     @FXML
     private void initChoiceBox() {
-        choiceGender.setItems(FXCollections.observableArrayList(gender));
-        choiceGender.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
-            
-        });
     }
 
-    
-                
-
-
-    //Methode om totale cursisten per geslacht te berekenen
+    // Methode om totale cursisten per geslacht te berekenen
     private int getTotalCursisten(GeslachtCursist geslacht) {
         int totalCursisten = 0;
         if (databaseConnection.openConnection()) {
@@ -348,15 +337,15 @@ public class CursistenOverzicht {
         return totalCursisten;
     }
 
-    //Haalt de cursist naam op uit de database
+    // Haalt de cursist naam op uit de database
     private ObservableList<String> getCursistNameFromDatabase() {
         ObservableList<String> cursistNameList = FXCollections.observableArrayList();
 
         try {
             if (databaseConnection.openConnection()) {
                 String query = "SELECT DISTINCT Cursist.Voornaam, Cursist.Achternaam FROM Cursist " +
-                "JOIN Inschrijving ON Cursist.Email = Inschrijving.Email";
- 
+                        "JOIN Inschrijving ON Cursist.Email = Inschrijving.Email";
+
                 ResultSet resultSet = databaseConnection.executeSQLSelectStatement(query);
 
                 while (resultSet.next()) {
@@ -375,24 +364,16 @@ public class CursistenOverzicht {
         return cursistNameList;
     }
 
-    //Methode om de cursistnamelist in de choicebox te weergeven
+    // Methode om de cursistnamelist in de choicebox te weergeven
     private void initCursistChoiceBox() {
-        ObservableList<String> cursistNames = getCursistNameFromDatabase();
-        choiceCursist.setItems(cursistNames);
     }
 
-    //Methode om te kijken welke naam wordt geselecteerd in de choicebox
+    // Methode om te kijken welke naam wordt geselecteerd in de choicebox
     private void setupCursistChoiceListener() {
-        choiceCursist.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
-            try {
-                displaySelectedCursistData(newValue);
-            } catch (SQLException | IllegalArgumentException | IllegalAccessException | NoSuchFieldException | SecurityException e) {
-                e.printStackTrace();
-            }
-        });
     }
 
-    private void displaySelectedCursistData(String cursistNaam) throws SQLException, IllegalArgumentException, IllegalAccessException, NoSuchFieldException, SecurityException {
+    private void displaySelectedCursistData(String cursistNaam) throws SQLException, IllegalArgumentException,
+            IllegalAccessException, NoSuchFieldException, SecurityException {
         // Label reset 2 zodat info niet zichtbaar blijft na wisselen van account
         beoordelingLabel1.setVisible(false);
         beoordelingLabel1.setText("");
@@ -400,7 +381,7 @@ public class CursistenOverzicht {
         cursusNaamLabel1.setText("");
         naamMedewerkerLabel1.setVisible(false);
         naamMedewerkerLabel1.setText("");
-    
+
         // Label reset 2 zodat info niet zichtbaar blijft na wisselen van account
         beoordelingLabel2.setVisible(false);
         beoordelingLabel2.setText("");
@@ -408,7 +389,7 @@ public class CursistenOverzicht {
         cursusNaamLabel2.setText("");
         naamMedewerkerLabel2.setVisible(false);
         naamMedewerkerLabel2.setText("");
-    
+
         // Label reset 3 zodat info niet zichtbaar blijft na wisselen van account
         beoordelingLabel3.setVisible(false);
         beoordelingLabel3.setText("");
@@ -424,22 +405,22 @@ public class CursistenOverzicht {
         cursusNaamLabel4.setText("");
         naamMedewerkerLabel4.setVisible(false);
         naamMedewerkerLabel4.setText("");
-    
+
         if (cursistNaam != null && !cursistNaam.isEmpty()) {
             if (databaseConnection.openConnection()) {
                 try {
                     // Query om voornaam, achternaam en e-mail op te halen
                     String cursistQuery = "SELECT * FROM Cursist WHERE Voornaam = ?";
-                    PreparedStatement cursistStatement = databaseConnection.getConnection().prepareStatement(cursistQuery);
+                    PreparedStatement cursistStatement = databaseConnection.getConnection()
+                            .prepareStatement(cursistQuery);
                     cursistStatement.setString(1, cursistNaam.split(" ")[0]);
                     ResultSet cursistResultSet = cursistStatement.executeQuery();
-    
+
                     if (cursistResultSet != null && cursistResultSet.next()) {
                         voornaamCursistLabel.setText(cursistResultSet.getString("Voornaam"));
                         achternaamCursistLabel.setText(cursistResultSet.getString("Achternaam"));
                         emailCursistLabel.setText(cursistResultSet.getString("Email"));
-    
-                        
+
                     }
                 } finally {
                     databaseConnection.closeConnection();
@@ -447,8 +428,5 @@ public class CursistenOverzicht {
             }
         }
     }
-    
-    
-} 
 
-
+}
