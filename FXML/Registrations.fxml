@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="738.0" prefWidth="1280.0" style="-fx-background-color: #FBC4AB;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.InschrijvingenOverzicht">
+    <children>
+        <AnchorPane layoutX="114.0" layoutY="-2.0" prefHeight="103.0" prefWidth="1166.0" style="-fx-background-color: #F08080;">
+            <children>
+                <Button fx:id="backToMenu" layoutX="987.0" layoutY="39.0" mnemonicParsing="false" onAction="#backToMenu" prefHeight="26.0" prefWidth="142.0" style="-fx-background-color: #F4978E; -fx-text-fill: WHITE;" text="Terug naar Menu">
+                    <font>
+                        <Font name="Arial Bold" size="14.0" />
+                    </font>
+                    <effect>
+                        <DropShadow />
+                    </effect>
+                </Button>
+                <Text fill="WHITE" layoutX="27.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Arial Bold'; -fx-font-size: 30;" text="Inschrijvingen Overzicht">
+                </Text>
+            </children>
+        </AnchorPane>
+        <ImageView fitHeight="111.0" fitWidth="124.0" layoutX="-1.0" pickOnBounds="false" preserveRatio="false">
+            <image>
+                <Image url="@../img/LOGOCODEACADEMY.png" />
+            </image>
+        </ImageView>
+        <ScrollPane layoutX="-6.0" layoutY="101.0" prefHeight="650.0" prefWidth="1280.0">
+            <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1160.0" prefWidth="1280.0">
+                    <children>
+                        <TableView fx:id="inschrijvingTable" layoutX="13.0" layoutY="42.0" prefHeight="238.0" prefWidth="1229.0" style="-fx-background-color: #FFF8F0;" AnchorPane.leftAnchor="13.0" AnchorPane.rightAnchor="25.399999999999864">
+                            <columns>
+                                <TableColumn fx:id="inschrijvingCursusNaamColumn" prefWidth="363.0" text="CursusNaam" />
+                                <TableColumn fx:id="inschrijvingEmailColumn" prefWidth="427.0" text="Email" />
+                                <TableColumn fx:id="inschrijvingInschrijfDatumColumn" prefWidth="206.0" text="InschrijfDatum" />
+                            </columns>
+                        </TableView>
+                        <Text fill="#e86043" layoutX="13.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Arial Bold'; -fx-font-size: 20;" text="Inschrijvingen">
+                        </Text>
+                        <!-- Additional elements remain consistently styled with the theme -->
+                    </children>
+                </AnchorPane>
+            </content>
+        </ScrollPane>
+    </children>
+</Pane>

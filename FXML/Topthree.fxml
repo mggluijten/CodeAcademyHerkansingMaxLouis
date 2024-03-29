@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" style="-fx-background-color: #FBC4AB;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.TopDrieOverzicht">
+   <children>
+      <ImageView fitHeight="105.0" fitWidth="130.0" pickOnBounds="true" preserveRatio="false">
+         <image>
+            <Image url="@../img/LOGOCODEACADEMY.png" />
+         </image>
+      </ImageView>
+      <AnchorPane layoutX="111.0" prefHeight="105.0" prefWidth="1170.0" style="-fx-background-color: #F08080;">
+         <children>
+            <Button fx:id="cursusOverzichtButton" layoutX="899.0" layoutY="39.0" mnemonicParsing="false" onAction="#backToCursusOverzicht" style="-fx-background-color: #F4978E; -fx-text-fill: WHITE;" text="Terug naar Cursus Overzicht">
+               <effect>
+                  <DropShadow />
+               </effect>
+               <font>
+                  <Font name="Arial Bold" size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="menuButton" layoutX="740.0" layoutY="39.0" mnemonicParsing="false" onAction="#backToMenu" style="-fx-background-color: #F4978E; -fx-text-fill: WHITE;" text="Terug naar Menu">
+               <effect>
+                  <DropShadow />
+               </effect>
+               <font>
+                  <Font name="Arial Bold" size="15.0" />
+               </font>
+            </Button>
+            <Text fill="WHITE" layoutX="30.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Top 3 van Cursussen en Webcasts" style="-fx-font-family: 'Arial Bold'; -fx-font-size: 30;">
+            </Text>
+         </children>
+      </AnchorPane>
+      <Text fill="#e86043" layoutX="141.0" layoutY="153.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Top 3 cursussen" style="-fx-font-family: 'Arial Bold'; -fx-font-size: 25;">
+      </Text>
+      <Label fx:id="cursusNaamLabel" layoutX="141.0" layoutY="200.0" prefHeight="25.0" prefWidth="346.0" textFill="#e86043" style="-fx-font-family: 'Arial'; -fx-font-size: 17;">
+      </Label>
+      <Text fill="#e86043" layoutX="141.0" layoutY="194.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nummer 1" style="-fx-font-family: 'Arial Bold Italic'; -fx-font-size: 20;">
+      </Text>
+      <Text fill="#214157" layoutX="141.0" layoutY="194.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nummer 1">
+         <font>
+            <Font name="Arial Bold Italic" size="20.0" />
+         </font>
+      </Text>
+      <Text fill="#214157" layoutX="141.0" layoutY="293.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nummer 2">
+         <font>
+            <Font name="Arial Bold Italic" size="20.0" />
+         </font>
+      </Text>
+      <Text fill="#214157" layoutX="141.0" layoutY="390.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nummer 3">
+         <font>
+            <Font name="Arial Bold Italic" size="20.0" />
+         </font>
+      </Text>
+
+      <Label fx:id="cursusNaamLabelNummerTwee" layoutX="141.0" layoutY="299.0" prefHeight="25.0" prefWidth="346.0" textFill="#214157">
+         <font>
+            <Font name="Arial" size="17.0" />
+         </font>
+      </Label>
+      <Label fx:id="cursusNaamLabelNummerDrie" layoutX="141.0" layoutY="395.0" prefHeight="25.0" prefWidth="346.0" textFill="#214157">
+         <font>
+            <Font name="Arial" size="17.0" />
+         </font>
+      </Label>
+      <Text fill="#214157" layoutX="745.0" layoutY="152.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Top 3 meest bekeken webcasts">
+         <font>
+            <Font name="Arial Bold" size="25.0" />
+         </font>
+      </Text>
+      <Text fill="#214157" layoutX="745.0" layoutY="389.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nummer 3">
+         <font>
+            <Font name="Arial Bold Italic" size="20.0" />
+         </font>
+      </Text>
+      <Label fx:id="webcastLabel" layoutX="745.0" layoutY="200.0" prefHeight="25.0" prefWidth="346.0" textFill="#214157">
+         <font>
+            <Font name="Arial" size="17.0" />
+         </font>
+      </Label>
+      <Label fx:id="webcastLabelTwee" layoutX="745.0" layoutY="299.0" prefHeight="25.0" prefWidth="346.0" textFill="#214157">
+         <font>
+            <Font name="Arial" size="17.0" />
+         </font>
+      </Label>
+      <Text fill="#214157" layoutX="745.0" layoutY="193.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nummer 1">
+         <font>
+            <Font name="Arial Bold Italic" size="20.0" />
+         </font>
+      </Text>
+      <Label fx:id="cursistLabel" layoutX="745.0" layoutY="222.0" prefHeight="25.0" prefWidth="346.0" textFill="#214157">
+         <font>
+            <Font name="Arial" size="17.0" />
+         </font>
+      </Label>
+      <Label fx:id="cursistLabelTwee" layoutX="745.0" layoutY="322.0" prefHeight="25.0" prefWidth="346.0" textFill="#214157">
+         <font>
+            <Font name="Arial" size="17.0" />
+         </font>
+      </Label>
+      <Label fx:id="cursistLabelDrie" layoutX="745.0" layoutY="418.0" prefHeight="25.0" prefWidth="346.0" textFill="#214157">
+         <font>
+            <Font name="Arial" size="17.0" />
+         </font>
+      </Label>
+      <Label fx:id="webcastLabelDrie" layoutX="745.0" layoutY="395.0" prefHeight="25.0" prefWidth="346.0" textFill="#214157">
+         <font>
+            <Font name="Arial" size="17.0" />
+         </font>
+      </Label>
+      <Text fill="#214157" layoutX="745.0" layoutY="292.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nummer 2">
+         <font>
+            <Font name="Arial Bold Italic" size="20.0" />
+         </font>
+      </Text>
+   </children>
+</Pane>

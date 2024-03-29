@@ -42,6 +42,7 @@ public class CodeAcademyMaxLouisAPP extends Application{
  
             primaryStage.setTitle("Max Luijten 2215302");
             primaryStage.setScene(scene);
+            primaryStage.sizeToScene();
             primaryStage.show();
  
             stg = primaryStage;

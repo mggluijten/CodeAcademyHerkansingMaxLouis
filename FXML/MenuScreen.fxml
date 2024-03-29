@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" style="-fx-background-color: #FBC4AB;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Menu">
+   <left>
+      <AnchorPane prefHeight="400.0" prefWidth="166.0" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fx:id="logoCodecademy" fitHeight="136.0" fitWidth="135.0" layoutX="16.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/LOGOCODEACADEMY.png" />
+               </image>
+            </ImageView>
+            <AnchorPane layoutY="174.0" prefHeight="226.0" prefWidth="163.0" style="-fx-background-color: #F08080;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="3.200000000000017" AnchorPane.topAnchor="174.0">
+               <children>
+                  <Button fx:id="logUitButton" layoutX="46.0" layoutY="542.0" mnemonicParsing="false" onAction="#userLogOut" prefHeight="30.0" prefWidth="71.0" style="-fx-background-color: #F4978E; -fx-text-fill: WHITE;" text="Log uit">
+                     <font>
+                        <Font name="Arial Bold" size="12.0" />
+                     </font>
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </Button>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </left>
+   <center>
+      <AnchorPane prefHeight="400.0" prefWidth="485.0" BorderPane.alignment="CENTER">
+         <children>
+            <Text fill="#e86043" layoutX="56.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Je bent nu ingelogd" style="-fx-font-family: 'Arial'; -fx-font-size: 18;">
+            </Text>
+            <Text fill="#e86043" layoutX="55.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welkom" style="-fx-font-family: 'Arial Bold'; -fx-font-size: 22;">
+            </Text>
+            <Button fx:id="CursistenoverzichtButton" layoutX="56.0" layoutY="175.0" mnemonicParsing="false" onAction="#userCursistoverzicht" prefHeight="46.0" prefWidth="1002.0" style="-fx-background-color: #F4978E; -fx-text-fill: WHITE;" text="Cursisten Overzicht">
+               <font>
+                  <Font name="Arial Bold" size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="CursusoverzichtButton" layoutX="56.0" layoutY="250.0" mnemonicParsing="false" onAction="#userCursusoverzicht" prefHeight="46.0" prefWidth="1002.0" style="-fx-background-color: #F4978E; -fx-text-fill: WHITE;" text="Cursus Overzicht">
+               <font>
+                  <Font name="Arial Bold" size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="InschrijvingButton" layoutX="56.0" layoutY="325.0" mnemonicParsing="false" onAction="#userInschrijving" prefHeight="46.0" prefWidth="1002.0" style="-fx-background-color: #F4978E; -fx-text-fill: WHITE;" text="Inschrijvingen Overzicht">
+               <font>
+                  <Font name="Arial Bold" size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="VoortgangButton" layoutX="56.0" layoutY="400.0" mnemonicParsing="false" onAction="#userVoortgang" prefHeight="46.0" prefWidth="1002.0" style="-fx-background-color: #F4978E; -fx-text-fill: WHITE;" text="Voortgang">
+               <font>
+                  <Font name="Arial Bold" size="18.0" />
+               </font>
+            </Button>
+            <Label fx:id="NaamMedewerkerLabel" layoutX="146.0" layoutY="58.0" prefHeight="23.0" prefWidth="240.0" textFill="#e86043" style="-fx-font-family: 'Arial Bold'; -fx-font-size: 20;">
+            </Label>
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>
