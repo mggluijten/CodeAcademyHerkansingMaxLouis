@@ -79,7 +79,7 @@ public class AddNewCursist {
 
     @FXML
     void backToOverview(ActionEvent event) throws IOException {
-        m.changeScene("/FXML/CursusOverview.fxml");
+        m.changeScene("/FXML/CursistOverview.fxml");
     }
 
     @FXML
