@@ -137,15 +137,11 @@ public class CursusOverzicht {
     CodeAcademyMaxLouisAPP m = new CodeAcademyMaxLouisAPP();
     DatabaseConnection connection = new DatabaseConnection();
 
-    @FXML
-    void addCursus(ActionEvent event) throws IOException {
-        m.changeScene("/FXML/AddNewCursus.fxml");
-
-    }
+   
 
     @FXML
     void toCursusAndWebcasts(ActionEvent event) throws IOException {
-        m.changeScene("/FXML/TopDrieOverzicht.fxml");
+        m.changeScene("/FXML/Topthree.fxml");
     
     }
 
@@ -163,7 +159,7 @@ public class CursusOverzicht {
    
     //Methode om de CursusDetails te openen
     private void openCursusDetails(Cursus selectedCursus) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/CursusDetails.fxml"));  
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/CursusOverview.fxml"));  
         Parent root = loader.load();
         CursusDetails controller = loader.getController();
     

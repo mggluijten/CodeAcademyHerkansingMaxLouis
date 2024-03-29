@@ -204,7 +204,7 @@ public class CursistenOverzicht {
     private void openAlterCursistForm(Cursist selectedCursist) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/AlterCursist.fxml"));
         Parent root = loader.load();
-        AlterCursist controller = loader.getController();  
+        AdjustCursist controller = loader.getController();  
     
         controller.setCursistData(selectedCursist);
     
@@ -273,7 +273,7 @@ public class CursistenOverzicht {
                         LocalDate geboortedatum = timestamp.toLocalDateTime().toLocalDate();
 
                         String geslachtStr = resultSet.getString("Geslacht");
-                        GeslachtCursist geslacht = Geslacht.valueOf(geslachtStr); // Converteer de string naar het Geslacht-enum
+                        GeslachtCursist geslacht = GeslachtCursist.valueOf(geslachtStr); // Converteer de string naar het Geslacht-enum
                     
                         String straatnaam = resultSet.getString("Straatnaam");
                         String huisnummer = resultSet.getString("Huisnummer");

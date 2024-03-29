@@ -93,7 +93,7 @@ public class InschrijvingenOverzicht {
     // Methode om het aanpassingsformulier te openen met geselecteerde inschrijving
     private void openAdjustInschrijvingForm(Inschrijving selectedInschrijving) throws IOException {
         CodeAcademyMaxLouisAPP m = new CodeAcademyMaxLouisAPP();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/AdjustInschrijving.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/AlterRegistrations.fxml"));
         Parent root = loader.load();
         AdjustInschrijving controller = loader.getController();
 
@@ -106,7 +106,7 @@ public class InschrijvingenOverzicht {
 
     @FXML
     void backToMenu(ActionEvent event) throws IOException {
-        m.changeScene("/FXML/Menu.fxml");
+        m.changeScene("/FXML/MenuScreen.fxml");
     }
 
    

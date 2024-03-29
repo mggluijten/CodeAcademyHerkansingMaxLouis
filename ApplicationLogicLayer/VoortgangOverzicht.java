@@ -62,7 +62,7 @@ public class VoortgangOverzicht {
 
     @FXML
     void backToMenu(ActionEvent event) throws IOException {
-        m.changeScene("/FXML/Menu.fxml");
+        m.changeScene("/FXML/MenuScreen.fxml");
     }
  
     @FXML
