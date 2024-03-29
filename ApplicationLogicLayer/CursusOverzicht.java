@@ -137,12 +137,15 @@ public class CursusOverzicht {
     CodeAcademyMaxLouisAPP m = new CodeAcademyMaxLouisAPP();
     DatabaseConnection connection = new DatabaseConnection();
 
-   
+    @FXML
+    void backToMenu(ActionEvent event) throws IOException {
+        m.changeScene("/FXML/MenuScreen.fxml");
+    }
 
     @FXML
     void toCursusAndWebcasts(ActionEvent event) throws IOException {
         m.changeScene("/FXML/Topthree.fxml");
-    
+
     }
 
     @FXML
@@ -156,41 +159,37 @@ public class CursusOverzicht {
         }
     }
 
-   
-    //Methode om de CursusDetails te openen
+    // Methode om de CursusDetails te openen
     private void openCursusDetails(Cursus selectedCursus) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/CursusOverview.fxml"));  
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/CursusOverview.fxml"));
         Parent root = loader.load();
         CursusDetails controller = loader.getController();
-    
-        controller.setCursusNaam(selectedCursus.getCursusNaam());
-    
-        m.changeSceneS(root, 1280, 800);  
-    }
 
-    
+        controller.setCursusNaam(selectedCursus.getCursusNaam());
+
+        m.changeSceneS(root, 1280, 800);
+    }
 
     private void tableViewCursus() {
         try {
-    
+
             if (connection.openConnection()) {
                 String query = "SELECT * FROM Cursus";
-                
-    
+
                 try (ResultSet resultSet = connection.executeSQLSelectStatement(query)) {
                     if (resultSet != null) {
                         ObservableList<Cursus> cursusList = FXCollections.observableArrayList();
-    
+
                         while (resultSet.next()) {
                             String cursusname = resultSet.getString("CursusNaam");
                             String cursusOnderwerp = resultSet.getString("Onderwerp");
                             String cursusIntroductie = resultSet.getString("IntroductieTekst");
                             Niveau cursusNiveau = Niveau.valueOf(resultSet.getString("NiveauAanduiding"));
 
-                            Cursus cursus = new Cursus(cursusname, cursusOnderwerp, cursusIntroductie, cursusNiveau);    
+                            Cursus cursus = new Cursus(cursusname, cursusOnderwerp, cursusIntroductie, cursusNiveau);
                             cursusList.add(cursus);
                         }
-    
+
                         cursusTable.setItems(cursusList);
                     }
                 }
@@ -203,14 +202,14 @@ public class CursusOverzicht {
     private void tableViewModule() {
         try {
             DatabaseConnection connection = new DatabaseConnection();
-    
+
             if (connection.openConnection()) {
                 String query = "SELECT CursusNaam, PublicatieDatum, Status, Titel, Beschrijving, Versie, Volgnummer, ModuleID, NaamContactPersoon, EmailContactPersoon FROM ContentItem WHERE ModuleID IS NOT NULL";
-    
+
                 try (ResultSet resultSet = connection.executeSQLSelectStatement(query)) {
-    
+
                     ObservableList<Module> moduleList = FXCollections.observableArrayList();
-    
+
                     while (resultSet.next()) {
                         int moduleID = resultSet.getInt("ModuleID");
                         String moduleName = resultSet.getString("CursusNaam");
@@ -222,15 +221,16 @@ public class CursusOverzicht {
                         int moduleVolgnumber = resultSet.getInt("Volgnummer");
                         String modulePerson = resultSet.getString("NaamContactPersoon");
                         String moduleEmail = resultSet.getString("EmailContactPersoon");
-    
+
                         Cursus cursusname = new Cursus(moduleName);
-                        Module modules = new Module(moduleID, cursusname, moduleDate, moduleStatus, moduleTitle, moduleDescription, moduleVersion, moduleVolgnumber, modulePerson, moduleEmail);
+                        Module modules = new Module(moduleID, cursusname, moduleDate, moduleStatus, moduleTitle,
+                                moduleDescription, moduleVersion, moduleVolgnumber, modulePerson, moduleEmail);
                         moduleList.add(modules);
-                        
+
                     }
-    
+
                     moduleTable.setItems(moduleList);
-    
+
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -240,7 +240,7 @@ public class CursusOverzicht {
         }
     }
 
-    //Haalt de cursus naam op uit de database
+    // Haalt de cursus naam op uit de database
     private ObservableList<String> getCursusNameFromDatabase() {
         ObservableList<String> cursusNameList = FXCollections.observableArrayList();
 
@@ -276,12 +276,12 @@ public class CursusOverzicht {
         try {
             if (connection.openConnection()) {
                 ObservableList<Cursus> aanbevolenCursussenList = FXCollections.observableArrayList();
-    
+
                 // Aanbevolen cursussen + CursusInteressant worden geselecteerd in de tabel
                 String query1 = "SELECT CursusNaam AS cursusAanbevolen " +
                         "FROM Cursus " +
                         "WHERE CursusInteressant = '" + cursusNaam + "' AND CursusNaam != '" + cursusNaam + "';";
-    
+
                 try (ResultSet resultSet1 = connection.executeSQLSelectStatement(query1)) {
                     while (resultSet1.next()) {
                         String cursusAanbevolenNaam = resultSet1.getString("cursusAanbevolen");
@@ -290,12 +290,12 @@ public class CursusOverzicht {
                         }
                     }
                 }
-    
-                // Selecteert alleen de cursusInteressant 
+
+                // Selecteert alleen de cursusInteressant
                 String query2 = "SELECT CursusInteressant " +
                         "FROM Cursus " +
                         "WHERE CursusNaam = '" + cursusNaam + "';";
-    
+
                 try (ResultSet resultSet2 = connection.executeSQLSelectStatement(query2)) {
                     while (resultSet2.next()) {
                         String cursusInteressantNaam = resultSet2.getString("CursusInteressant");
@@ -304,45 +304,44 @@ public class CursusOverzicht {
                         }
                     }
                 }
-    
+
                 cursusAanbevolenTable.setItems(aanbevolenCursussenList);
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
-    
 
     private void tableViewWebcasts() {
-    try {
-        if (connection.openConnection()) {
-            String query = "SELECT CursusNaam, PublicatieDatum, Status, Titel, Beschrijving, NaamSpreker, OrganisatieNaam, WebcastURL, Tijdsduur FROM ContentItem WHERE ModuleID IS NULL";
+        try {
+            if (connection.openConnection()) {
+                String query = "SELECT CursusNaam, PublicatieDatum, Status, Titel, Beschrijving, NaamSpreker, OrganisatieNaam, WebcastURL, Tijdsduur FROM ContentItem WHERE ModuleID IS NULL";
 
-            try (ResultSet resultSet = connection.executeSQLSelectStatement(query)) {
+                try (ResultSet resultSet = connection.executeSQLSelectStatement(query)) {
 
-                ObservableList<Webcast> webcastList = FXCollections.observableArrayList();
+                    ObservableList<Webcast> webcastList = FXCollections.observableArrayList();
 
-                while (resultSet.next()) {
-                    String webcastCursusName = resultSet.getString("CursusNaam");
-                    Date webcastPublicatieDatum = resultSet.getDate("PublicatieDatum");
-                    Status webcastStatus = Status.valueOf(resultSet.getString("Status"));
-                    String webcastTitel = resultSet.getString("Titel");
-                    String webcastBeschrijving = resultSet.getString("Beschrijving");
-                    String webcastNaamSpreker = resultSet.getString("NaamSpreker");
-                    String webcastOrganisatieNaam = resultSet.getString("OrganisatieNaam");
-                    String webcastURL = resultSet.getString("WebcastURL");
-                    Time webcastTijdsduur = resultSet.getTime("Tijdsduur");
+                    while (resultSet.next()) {
+                        String webcastCursusName = resultSet.getString("CursusNaam");
+                        Date webcastPublicatieDatum = resultSet.getDate("PublicatieDatum");
+                        Status webcastStatus = Status.valueOf(resultSet.getString("Status"));
+                        String webcastTitel = resultSet.getString("Titel");
+                        String webcastBeschrijving = resultSet.getString("Beschrijving");
+                        String webcastNaamSpreker = resultSet.getString("NaamSpreker");
+                        String webcastOrganisatieNaam = resultSet.getString("OrganisatieNaam");
+                        String webcastURL = resultSet.getString("WebcastURL");
+                        Time webcastTijdsduur = resultSet.getTime("Tijdsduur");
 
-                  
-                    Cursus cursusname = new Cursus(webcastCursusName);
-                    
-                    Webcast webcast = new Webcast(cursusname, webcastPublicatieDatum, webcastStatus, webcastTitel, webcastBeschrijving, webcastNaamSpreker, webcastOrganisatieNaam, webcastURL, webcastTijdsduur);
+                        Cursus cursusname = new Cursus(webcastCursusName);
 
-                    
-                    webcastList.add(webcast);
-                }
+                        Webcast webcast = new Webcast(cursusname, webcastPublicatieDatum, webcastStatus, webcastTitel,
+                                webcastBeschrijving, webcastNaamSpreker, webcastOrganisatieNaam, webcastURL,
+                                webcastTijdsduur);
 
-                webcastTable.setItems(webcastList);
+                        webcastList.add(webcast);
+                    }
+
+                    webcastTable.setItems(webcastList);
 
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -352,49 +351,22 @@ public class CursusOverzicht {
             e.printStackTrace();
         }
     }
-    
+
     @FXML
     private void initialize() {
-        //Cursus
+        // Cursus
         naamColumn.setCellValueFactory(new PropertyValueFactory<>("cursusNaam"));
         onderwerpColumn.setCellValueFactory(new PropertyValueFactory<>("onderwerp"));
         introductietekstColumn.setCellValueFactory(new PropertyValueFactory<>("introductie"));
         niveauColumn.setCellValueFactory(new PropertyValueFactory<>("niveau"));
-    
+
         tableViewCursus();
 
-        //Aanbevolen Cursussen
+        // Aanbevolen Cursussen
         cursusAanbevolenColumn.setCellValueFactory(new PropertyValueFactory<>("cursusNaam"));
         cursusChoicebox.setItems((getCursusNameFromDatabase()));
         cursusChoicebox.setOnAction(event -> cursusSelected());
 
-        //Module
-        moduleIDColumn.setCellValueFactory(new PropertyValueFactory<>("moduleID"));
-        moduleNaamColumn.setCellValueFactory(new PropertyValueFactory<>("cursusNaam"));
-        moduleDatumColumn.setCellValueFactory(new PropertyValueFactory<>("publicatiedatum"));
-        moduleStatusColumn.setCellValueFactory(new PropertyValueFactory<>("Status"));
-        moduleTitelColumn.setCellValueFactory(new PropertyValueFactory<>("titel"));
-        moduleBeschrijvingColumn.setCellValueFactory(new PropertyValueFactory<>("beschrijving"));
-        moduleVersieColumn.setCellValueFactory(new PropertyValueFactory<>("versie"));
-        moduleVolgnummerColumn.setCellValueFactory(new PropertyValueFactory<>("volgnummer"));
-        moduleContactpersoonColumn.setCellValueFactory(new PropertyValueFactory<>("naamContactpersoon"));
-        moduleContactpersoonEmailColumn.setCellValueFactory(new PropertyValueFactory<>("emailContactpersoon"));
-
-
-        tableViewModule();
-
-        //Webcast
-        webcastNaamColumn.setCellValueFactory(new PropertyValueFactory<>("cursusNaam"));
-        webcastDatumColumn.setCellValueFactory(new PropertyValueFactory<>("publicatiedatum"));
-        webcastStatusColumn.setCellValueFactory(new PropertyValueFactory<>("status"));
-        webcastTitelColumn.setCellValueFactory(new PropertyValueFactory<>("titel"));
-        webcastBeschrijvingColumn.setCellValueFactory(new PropertyValueFactory<>("beschrijving"));
-        webcastSprekerColumn.setCellValueFactory(new PropertyValueFactory<>("naamSpreker"));
-        webcastOrganisatieColumn.setCellValueFactory(new PropertyValueFactory<>("organisatieNaam"));
-        webcastURLColumn.setCellValueFactory(new PropertyValueFactory<>("webcastURL"));
-        webcastTijdsduurColumn.setCellValueFactory(new PropertyValueFactory<>("tijdsduur"));
-
-        tableViewWebcasts();
     }
 
 }

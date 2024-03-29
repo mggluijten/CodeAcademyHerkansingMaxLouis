@@ -6,6 +6,14 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeAcademyMaxLouisAPP",
+            "request": "launch",
+            "mainClass": "ApplicationLogicLayer.CodeAcademyMaxLouisAPP",
+            "projectName": "CodeAcademyHerkansingMaxLouis_947081b5",
+            "vmArgs": "--module-path \"C:/Avans/JavaFx/javafx-sdk-11.0.2/lib\" --add-modules javafx.controls,javafx.fxml"
+        },
+        {
+            "type": "java",
             "name": "<unnamed_class$main>",
             "request": "launch",
             "mainClass": "<unnamed_class$main>",

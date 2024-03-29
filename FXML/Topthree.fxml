@@ -65,7 +65,23 @@
             <Font name="Arial" size="17.0" />
          </font>
       </Label>
+      
       <Label fx:id="cursusNaamLabelNummerDrie" layoutX="141.0" layoutY="395.0" prefHeight="25.0" prefWidth="346.0" textFill="#214157">
+         <font>
+            <Font name="Arial" size="17.0" />
+         </font>
+      </Label>
+      <Label fx:id="certificaatLabel" layoutX="141.0" layoutY="222.0" prefHeight="25.0" prefWidth="346.0" textFill="#214157">
+         <font>
+            <Font name="Arial" size="17.0" />
+         </font>
+      </Label>
+      <Label fx:id="certificaatLabelTwee" layoutX="141.0" layoutY="322.0" prefHeight="25.0" prefWidth="346.0" textFill="#214157">
+         <font>
+            <Font name="Arial" size="17.0" />
+         </font>
+      </Label>
+      <Label fx:id="certificaatLabelDrie" layoutX="141.0" layoutY="418.0" prefHeight="25.0" prefWidth="346.0" textFill="#214157">
          <font>
             <Font name="Arial" size="17.0" />
          </font>
