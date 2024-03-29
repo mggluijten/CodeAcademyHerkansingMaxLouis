@@ -79,10 +79,10 @@ public class AddNewCursist {
 
     @FXML
     void backToOverview(ActionEvent event) throws IOException {
-        m.changeScene("/FXML/CursistenOverzicht.fxml");
+        m.changeScene("/FXML/CursistOverview.fxml");
     }
 
-   @FXML
+    @FXML
     public void addCursist() {
         String userEmail = email.getText();
         String userVoornaam = voornaam.getText();
@@ -98,10 +98,10 @@ public class AddNewCursist {
                 || userGeslacht.isEmpty() || userStraatnaam.isEmpty() || userHuisnummer.isEmpty()
                 || userPostcode.isEmpty() || userWoonplaats.isEmpty() || userLand.isEmpty()) {
             errorAddCursist.setText("Vul alle velden in.");
-            return; 
+            return;
         }
 
-        // Validate email 
+        // Validate email
         if (!MailTools.validateMailAddress(userEmail)) {
             errorAddCursist.setText("Vul een geldig e-mailadres in.");
             return;
@@ -113,14 +113,13 @@ public class AddNewCursist {
             return;
         }
 
-        // Validate postcode  (in het formaat XXXX AB)
+        // Validate postcode (in het formaat XXXX AB)
         try {
             String formattedPostalCode = PostalCode.formatPostalCode(userPostcode);
         } catch (IllegalArgumentException e) {
             errorAddCursist.setText(e.getMessage());
             return;
         }
-        
 
         int updatedDag, updatedMaand, updatedJaar;
         try {
@@ -131,21 +130,21 @@ public class AddNewCursist {
             errorAddCursist.setText("Vul geldige getallen in voor dag, maand en jaar.");
             return;
         }
-        
+
         if (updatedDag == 0 || updatedMaand == 0 || updatedJaar == 0) {
             errorAddCursist.setText("Vul alle velden van de geboortedatum in.");
             return;
         }
-        
-        //3 velden tot in geboortedatum maken
+
+        // 3 velden tot in geboortedatum maken
         LocalDate userGeboortedatum;
         try {
             if (!DateTools.validateDate(updatedDag, updatedMaand, updatedJaar)) {
                 throw new IllegalArgumentException("Vul een geldige geboortedatum in.");
             }
-        
+
             userGeboortedatum = LocalDate.of(updatedJaar, updatedMaand, updatedDag);
-        
+
             if (userGeboortedatum.isAfter(LocalDate.now())) {
                 errorAddCursist.setText("Vul een geldige geboortedatum in.");
                 return;
@@ -154,13 +153,13 @@ public class AddNewCursist {
             errorAddCursist.setText("Vul een geldige geboortedatum in.");
             return;
         }
-        
-
 
         // Insert statement
         String query = "INSERT INTO Cursist (email, voornaam, achternaam, geboortedatum, geslacht, straatnaam, huisnummer, postcode, woonplaats, land) "
-                + "VALUES ('" + userEmail + "', '" + userVoornaam + "', '" + userAchternaam + "', '" + userGeboortedatum + "', '"
-                + userGeslacht + "', '" + userStraatnaam + "', '" + userHuisnummer + "', '" + userPostcode + "', '" + userWoonplaats + "', '" + userLand + "')";
+                + "VALUES ('" + userEmail + "', '" + userVoornaam + "', '" + userAchternaam + "', '" + userGeboortedatum
+                + "', '"
+                + userGeslacht + "', '" + userStraatnaam + "', '" + userHuisnummer + "', '" + userPostcode + "', '"
+                + userWoonplaats + "', '" + userLand + "')";
 
         if (databaseConnection.openConnection()) {
             int rowsAffected = databaseConnection.executeSQLUpdateStatement(query);
