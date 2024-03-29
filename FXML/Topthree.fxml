@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.effect.DropShadow?>
@@ -34,31 +35,12 @@
                   <Font name="Arial Bold" size="15.0" />
                </font>
             </Button>
-            <Text fill="WHITE" layoutX="30.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Top 3 van Cursussen en Webcasts" style="-fx-font-family: 'Arial Bold'; -fx-font-size: 30;">
+            <Text fill="WHITE" layoutX="30.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Arial Bold'; -fx-font-size: 30;" text="Top 3 van Cursussen en Webcasts">
             </Text>
          </children>
       </AnchorPane>
-      <Text fill="#e86043" layoutX="141.0" layoutY="153.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Top 3 cursussen" style="-fx-font-family: 'Arial Bold'; -fx-font-size: 25;">
-      </Text>
-      <Label fx:id="cursusNaamLabel" layoutX="141.0" layoutY="200.0" prefHeight="25.0" prefWidth="346.0" textFill="#e86043" style="-fx-font-family: 'Arial'; -fx-font-size: 17;">
+      <Label fx:id="cursusNaamLabel" layoutX="141.0" layoutY="200.0" prefHeight="25.0" prefWidth="346.0" style="-fx-font-family: 'Arial'; -fx-font-size: 17;" textFill="#e86043">
       </Label>
-      <Text fill="#e86043" layoutX="141.0" layoutY="194.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nummer 1" style="-fx-font-family: 'Arial Bold Italic'; -fx-font-size: 20;">
-      </Text>
-      <Text fill="#214157" layoutX="141.0" layoutY="194.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nummer 1">
-         <font>
-            <Font name="Arial Bold Italic" size="20.0" />
-         </font>
-      </Text>
-      <Text fill="#214157" layoutX="141.0" layoutY="293.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nummer 2">
-         <font>
-            <Font name="Arial Bold Italic" size="20.0" />
-         </font>
-      </Text>
-      <Text fill="#214157" layoutX="141.0" layoutY="390.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nummer 3">
-         <font>
-            <Font name="Arial Bold Italic" size="20.0" />
-         </font>
-      </Text>
 
       <Label fx:id="cursusNaamLabelNummerTwee" layoutX="141.0" layoutY="299.0" prefHeight="25.0" prefWidth="346.0" textFill="#214157">
          <font>
@@ -71,67 +53,52 @@
             <Font name="Arial" size="17.0" />
          </font>
       </Label>
-      <Label fx:id="certificaatLabel" layoutX="141.0" layoutY="222.0" prefHeight="25.0" prefWidth="346.0" textFill="#214157">
-         <font>
-            <Font name="Arial" size="17.0" />
-         </font>
-      </Label>
-      <Label fx:id="certificaatLabelTwee" layoutX="141.0" layoutY="322.0" prefHeight="25.0" prefWidth="346.0" textFill="#214157">
-         <font>
-            <Font name="Arial" size="17.0" />
-         </font>
-      </Label>
-      <Label fx:id="certificaatLabelDrie" layoutX="141.0" layoutY="418.0" prefHeight="25.0" prefWidth="346.0" textFill="#214157">
-         <font>
-            <Font name="Arial" size="17.0" />
-         </font>
-      </Label>
-      <Text fill="#214157" layoutX="745.0" layoutY="152.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Top 3 meest bekeken webcasts">
+      <Text fill="#214157" layoutX="482.0" layoutY="188.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Top 3 meest bekeken webcasts">
          <font>
             <Font name="Arial Bold" size="25.0" />
          </font>
       </Text>
-      <Text fill="#214157" layoutX="745.0" layoutY="389.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nummer 3">
+      <Text fill="#214157" layoutX="482.0" layoutY="425.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nummer 3">
          <font>
             <Font name="Arial Bold Italic" size="20.0" />
          </font>
       </Text>
-      <Label fx:id="webcastLabel" layoutX="745.0" layoutY="200.0" prefHeight="25.0" prefWidth="346.0" textFill="#214157">
+      <Label fx:id="webcastLabel" layoutX="482.0" layoutY="236.0" prefHeight="25.0" prefWidth="346.0" textFill="#214157">
          <font>
             <Font name="Arial" size="17.0" />
          </font>
       </Label>
-      <Label fx:id="webcastLabelTwee" layoutX="745.0" layoutY="299.0" prefHeight="25.0" prefWidth="346.0" textFill="#214157">
+      <Label fx:id="webcastLabelTwee" layoutX="482.0" layoutY="335.0" prefHeight="25.0" prefWidth="346.0" textFill="#214157">
          <font>
             <Font name="Arial" size="17.0" />
          </font>
       </Label>
-      <Text fill="#214157" layoutX="745.0" layoutY="193.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nummer 1">
+      <Text fill="#214157" layoutX="482.0" layoutY="229.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nummer 1">
          <font>
             <Font name="Arial Bold Italic" size="20.0" />
          </font>
       </Text>
-      <Label fx:id="cursistLabel" layoutX="745.0" layoutY="222.0" prefHeight="25.0" prefWidth="346.0" textFill="#214157">
+      <Label fx:id="cursistLabel" layoutX="482.0" layoutY="258.0" prefHeight="25.0" prefWidth="346.0" textFill="#214157">
          <font>
             <Font name="Arial" size="17.0" />
          </font>
       </Label>
-      <Label fx:id="cursistLabelTwee" layoutX="745.0" layoutY="322.0" prefHeight="25.0" prefWidth="346.0" textFill="#214157">
+      <Label fx:id="cursistLabelTwee" layoutX="482.0" layoutY="358.0" prefHeight="25.0" prefWidth="346.0" textFill="#214157">
          <font>
             <Font name="Arial" size="17.0" />
          </font>
       </Label>
-      <Label fx:id="cursistLabelDrie" layoutX="745.0" layoutY="418.0" prefHeight="25.0" prefWidth="346.0" textFill="#214157">
+      <Label fx:id="cursistLabelDrie" layoutX="482.0" layoutY="454.0" prefHeight="25.0" prefWidth="346.0" textFill="#214157">
          <font>
             <Font name="Arial" size="17.0" />
          </font>
       </Label>
-      <Label fx:id="webcastLabelDrie" layoutX="745.0" layoutY="395.0" prefHeight="25.0" prefWidth="346.0" textFill="#214157">
+      <Label fx:id="webcastLabelDrie" layoutX="482.0" layoutY="431.0" prefHeight="25.0" prefWidth="346.0" textFill="#214157">
          <font>
             <Font name="Arial" size="17.0" />
          </font>
       </Label>
-      <Text fill="#214157" layoutX="745.0" layoutY="292.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nummer 2">
+      <Text fill="#214157" layoutX="482.0" layoutY="328.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nummer 2">
          <font>
             <Font name="Arial Bold Italic" size="20.0" />
          </font>
