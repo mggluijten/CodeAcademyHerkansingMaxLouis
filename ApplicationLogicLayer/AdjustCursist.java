@@ -86,7 +86,6 @@ public class AdjustCursist {
     public void setCursistData(Cursist cursist) {
         selectedCursist = cursist;
 
-
         email.setText(cursist.getEmail() != null ? cursist.getEmail() : "");
         voornaam.setText(cursist.getVoornaam() != null ? cursist.getVoornaam() : "");
         achternaam.setText(cursist.getAchternaam() != null ? cursist.getAchternaam() : "");
@@ -97,7 +96,6 @@ public class AdjustCursist {
             maand.setText(String.valueOf(geboortedatumValue.getMonthValue()));
             jaar.setText(String.valueOf(geboortedatumValue.getYear()));
         }
-   
 
         geslacht.setText(cursist.getGeslacht() != null ? cursist.getGeslacht().toString() : "");
         straatnaam.setText(cursist.getStraatnaam() != null ? cursist.getStraatnaam() : "");
@@ -107,17 +105,14 @@ public class AdjustCursist {
         land.setText(cursist.getLand() != null ? cursist.getLand() : "");
     }
 
-
-
-    //Methode cursis aanpassen database
-    public void adjustCursist(){
+    // Methode cursis aanpassen database
+    public void adjustCursist() {
         if (selectedCursist != null) {
 
             String updatedEmail = email.getText();
             String updatedVoornaam = voornaam.getText();
             String updatedAchternaam = achternaam.getText();
 
-   
             int updatedDag, updatedMaand, updatedJaar;
             try {
                 updatedDag = Integer.parseInt(dag.getText());
@@ -125,18 +120,18 @@ public class AdjustCursist {
                 updatedJaar = Integer.parseInt(jaar.getText());
             } catch (NumberFormatException e) {
                 errorAdjustCursist.setText("Vul geldige getallen in voor dag, maand en jaar.");
-                return;  // Add this line to stop further processing
+                return; // Add this line to stop further processing
             }
-            
+
             // Combineer dag, maand en jaar om een LocalDate-object te maken
             LocalDate updatedGeboortedatum;
             try {
                 if (!DateTools.validateDate(updatedDag, updatedMaand, updatedJaar)) {
                     throw new IllegalArgumentException("Vul een geldige geboortedatum in.");
                 }
-            
+
                 updatedGeboortedatum = LocalDate.of(updatedJaar, updatedMaand, updatedDag);
-            
+
                 if (updatedGeboortedatum.isAfter(LocalDate.now())) {
                     errorAdjustCursist.setText("Vul een geldige geboortedatum in.");
                     return;
@@ -152,7 +147,7 @@ public class AdjustCursist {
             } catch (IllegalArgumentException e) {
                 errorAdjustCursist.setText("Vul M, V of X in als geslacht.");
                 return;
-            }                
+            }
 
             String updatedGeslacht = geslacht.getText();
             String updatedStraatnaam = straatnaam.getText();
@@ -180,7 +175,7 @@ public class AdjustCursist {
                 return;
             }
 
-            // Validate postcode  (in het formaat XXXX AB)
+            // Validate postcode (in het formaat XXXX AB)
             try {
                 String formattedPostalCode = PostalCode.formatPostalCode(updatedPostcode);
             } catch (IllegalArgumentException e) {
@@ -189,7 +184,8 @@ public class AdjustCursist {
             }
 
             updateCursistInDatabase(updatedEmail, updatedVoornaam, updatedAchternaam, updatedGeboortedatum,
-            updatedGeslachtEnum, updatedStraatnaam, updatedHuisnummer, updatedPostcode, updatedWoonplaats, updatedLand);
+                    updatedGeslachtEnum, updatedStraatnaam, updatedHuisnummer, updatedPostcode, updatedWoonplaats,
+                    updatedLand);
 
             try {
                 backToOverview(null);
@@ -199,13 +195,10 @@ public class AdjustCursist {
         }
     }
 
-
-
-
     // Methode om cursistgegevens in de database bij te werken
     private void updateCursistInDatabase(String email, String voornaam, String achternaam, LocalDate geboortedatum,
-                                        GeslachtCursist geslacht, String straatnaam, String huisnummer, String postcode,
-                                        String woonplaats, String land) {
+            GeslachtCursist geslacht, String straatnaam, String huisnummer, String postcode,
+            String woonplaats, String land) {
         String formattedGeboortedatum = geboortedatum.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
 
         String query = "UPDATE Cursist SET " +
@@ -219,7 +212,6 @@ public class AdjustCursist {
                 "Woonplaats = '" + woonplaats + "', " +
                 "Land = '" + land + "' " +
                 "WHERE Email = '" + email + "'";
-
 
         if (databaseConnection.openConnection()) {
             try {
@@ -239,9 +231,9 @@ public class AdjustCursist {
         }
     }
 
-
     @FXML
     void backToOverview(ActionEvent event) throws IOException {
-        m.changeScene("/FXML/CursistenOverzicht.fxml");
+        m.changeScene("/FXML/CursistOverview.fxml");
     }
+
 }
