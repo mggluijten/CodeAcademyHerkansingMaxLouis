@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="729.0" prefWidth="1280.0" style="-fx-background-color: #FBC4AB;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.AdjustInschrijving">
+   <children>
+      <AnchorPane layoutX="87.0" layoutY="-4.0" prefHeight="84.0" prefWidth="1195.0" style="-fx-background-color: #F08080;">
+         <children>
+            <Text fill="WHITE" layoutX="48.0" layoutY="53.0" style="-fx-font-family: 'Arial Bold'; -fx-font-size: 25px;" text="Inschrijving Bewerken">
+            </Text>
+            <Button fx:id="backToOverview" layoutX="998.0" layoutY="31.0" mnemonicParsing="false" onAction="#backToOverview" style="-fx-background-color: #F4978E; -fx-text-fill: WHITE;" text="Terug naar Overzicht">
+               <effect>
+                  <DropShadow />
+               </effect>
+               <font>
+                  <Font name="Arial Bold" size="15.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+      <ImageView fitHeight="84.0" fitWidth="95.0" layoutX="-8.0" pickOnBounds="true">
+         <image>
+            <Image url="@../img/LOGOCODEACADEMY.png" />
+         </image>
+      </ImageView>
+      <AnchorPane layoutX="3.0" layoutY="84.0" prefHeight="673.0" prefWidth="1195.0">
+         <children>
+            <Text fill="#e86043" layoutX="248.0" layoutY="146.0" style="-fx-font-family: 'Arial Bold'; -fx-font-size: 16px;" text="Email Cursist">
+            </Text>
+            <Text fill="#e86043" layoutX="248.0" layoutY="219.0" style="-fx-font-family: 'Arial Bold'; -fx-font-size: 16px;" text="Cursus Naam">
+            </Text>
+            <Text fill="#e86043" layoutX="486.0" layoutY="145.0" style="-fx-font-family: 'Arial Bold'; -fx-font-size: 16px;" text="Inschrijfdatum">
+            </Text>
+            <Button fx:id="addInschrijvingButton" layoutX="326.0" layoutY="570.0" mnemonicParsing="false" onAction="#adjustInschrijving" prefHeight="34.0" prefWidth="181.0" style="-fx-background-color: #F4978E; -fx-text-fill: WHITE;" text="Opslaan">
+               <font>
+                  <Font name="Arial Bold" size="15.0" />
+               </font>
+            </Button>
+            <Label fx:id="errorAdjustInschrijving" layoutX="14.0" layoutY="570.0" prefHeight="56.0" prefWidth="301.0" textFill="RED">
+               <font>
+                  <Font name="Arial Bold" size="12.0" />
+               </font>
+            </Label>
+             <Text fill="#e86043" layoutX="487.0" layoutY="171.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Jaar" wrappingWidth="58.017578125">
+               <font>
+                  <Font name="Arial Bold" size="12.0" />
+               </font>
+            </Text>
+            <Text fill="#e86043" layoutX="487.0" layoutY="225.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Maand" wrappingWidth="58.017578125">
+               <font>
+                  <Font name="Arial Bold" size="12.0" />
+               </font>
+            </Text>
+            <Text fill="#e86043" layoutX="487.0" layoutY="281.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dag" wrappingWidth="58.017578125">
+               <font>
+                  <Font name="Arial Bold" size="12.0" />
+               </font>
+            </Text>
+            <!-- Further styling adjustments for TextField, ChoiceBox, Label -->
+            <TextField fx:id="jaar" layoutX="487.0" layoutY="177.0" promptText="yyyy" style="-fx-background-color: #FFF8F0;">
+            </TextField>
+            <TextField fx:id="maand" layoutX="487.0" layoutY="231.0" promptText="mm" style="-fx-background-color: #FFF8F0;">
+            </TextField>
+            <TextField fx:id="dag" layoutX="487.0" layoutY="289.0" promptText="dd" style="-fx-background-color: #FFF8F0;">
+            </TextField>
+            <ChoiceBox fx:id="choiceEmail" layoutX="248.0" layoutY="160.0" prefHeight="25.0" prefWidth="168.0" style="-fx-background-color: #FFF8F0;">
+            </ChoiceBox>
+            <ChoiceBox fx:id="choiceCursus" layoutX="248.0" layoutY="233.0" prefHeight="25.0" prefWidth="168.0" style="-fx-background-color: #FFF8F0;">
+            </ChoiceBox>
+            <!-- Adjust Label styles to match the overall theme -->
+            <Label fx:id="voornaamCursistLabel" layoutX="58.0" layoutY="407.0" prefHeight="17.0" prefWidth="181.0" style="-fx-font-family: 'Arial'; -fx-font-size: 14px;" textFill="#214157">
+            </Label>
+            <Label fx:id="achternaamCursistLabel" layoutX="58.0" layoutY="470.0" prefHeight="17.0" prefWidth="193.0" style="-fx-font-family: 'Arial'; -fx-font-size: 14px;" textFill="#214157">
+            </Label>
+            <Label fx:id="emailCursistLabel" layoutX="58.0" layoutY="536.0" prefHeight="17.0" prefWidth="218.0" style="-fx-font-family: 'Arial'; -fx-font-size: 14px;" textFill="#214157">
+            </Label>
+            <!-- Continue with additional styling as necessary -->
+             <Label fx:id="cursusNaamLabel" layoutX="259.0" layoutY="409.0" prefHeight="17.0" prefWidth="150.0" textFill="#214157">
+               <font>
+                  <Font name="Arial" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="inschrijfDatumLabel" layoutX="259.0" layoutY="538.0" prefHeight="17.0" prefWidth="150.0" textFill="#214157">
+               <font>
+                  <Font name="Arial" size="14.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </children>
+</Pane>
