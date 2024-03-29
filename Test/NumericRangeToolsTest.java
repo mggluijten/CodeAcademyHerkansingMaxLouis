@@ -13,21 +13,21 @@ public class NumericRangeToolsTest {
      * @desc Validates if the input is within range of 0-100%
      * 
      * @subcontract value within valid range {
-     *   @requires 0 <= percentage <= 100;
-     *   @ensures \result = true;
-     * }
+     * @requires 0 <= percentage <= 100;
+     * @ensures \result = true;
+     *          }
      * 
      * @subcontract value out of range low {
-     *   @requires percentage < 0;
-     *   @ensures \result = false;
-     * }
+     * @requires percentage < 0;
+     * @ensures \result = false;
+     *          }
      * 
      * @subcontract value out of range high {
-     *   @requires percentage > 100;
-     *   @signals \result = false;
-     * }
+     * @requires percentage > 100;
+     * @signals \result = false;
+     *          }
      * 
-     */ 
+     */
 
     @Test
     public void testValueWithinValidRange() {
@@ -41,7 +41,6 @@ public class NumericRangeToolsTest {
         assertTrue(result);
     }
 
-    
     @Test
     public void testValueOutOfRangeLow() {
         // Arrange
@@ -54,7 +53,6 @@ public class NumericRangeToolsTest {
         assertFalse(result);
     }
 
-    
     @Test
     public void testValueOutOfRangeHigh() {
         // Arrange
@@ -66,5 +64,43 @@ public class NumericRangeToolsTest {
         // Assert
         assertFalse(result);
     }
-}
 
+    @Test
+    public void testBoundaryAtLowerLimit() {
+        // Arrange
+        int percentage = 0;
+
+        // Act
+        boolean result = NumericRangeTools.isValidPercentage(percentage);
+
+        // Assert
+        assertTrue(result);
+    }
+
+    @Test
+    public void testBoundaryAtUpperLimit() {
+        // Arrange
+        int percentage = 100;
+
+        // Act
+        boolean result = NumericRangeTools.isValidPercentage(percentage);
+
+        // Assert
+        assertTrue(result);
+    }
+
+    // This test assumes that the isValidPercentage method only accepts integers.
+    // If it accepts other numeric types, those should be tested as well.
+    @Test(expected = IllegalArgumentException.class)
+    public void testInvalidType() {
+        // Arrange
+        String invalidTypePercentage = "50";
+
+        // Act
+        boolean result = NumericRangeTools.isValidPercentage(Integer.parseInt(invalidTypePercentage));
+
+        // This line should not be reached, as an exception is expected
+        assertFalse(result);
+    }
+
+}
