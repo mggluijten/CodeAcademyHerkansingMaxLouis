@@ -12,7 +12,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<ScrollPane prefHeight="1545.0" prefWidth="1253.0" style="-fx-background-color: #FBC4AB;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.CursistenOverzicht">
+<ScrollPane prefHeight="1545.0" prefWidth="1253.0" style="-fx-background-color: #FBC4AB;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ApplicationLogicLayer.CursistenOverzicht">
    <content>
       <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1415.0" prefWidth="1253.0">
          <children>

@@ -9,7 +9,8 @@
             "name": "<unnamed_class$main>",
             "request": "launch",
             "mainClass": "<unnamed_class$main>",
-            "projectName": "CodeAcademyHerkansingMaxLouis_9df7ef9e"
+            "projectName": "CodeAcademyHerkansingMaxLouis_9df7ef9e",
+            "vmArgs": "--module-path \"C:/Program Files/Eclipse Adoptium/javafx-sdk-11.0.2/lib\" --add-modules javafx.controls,javafx.fxml"
         },
         {
             "type": "java",
@@ -22,7 +23,8 @@
             "name": "CodeAcademyMaxLouisAPP",
             "request": "launch",
             "mainClass": "ApplicationLogicLayer.CodeAcademyMaxLouisAPP",
-            "projectName": "CodeAcademyHerkansingMaxLouis_9df7ef9e"
+            "projectName": "CodeAcademyHerkansingMaxLouis_9df7ef9e",
+            "vmArgs": "--module-path \"C:/Program Files/Eclipse Adoptium/javafx-sdk-11.0.2/lib\" --add-modules javafx.controls,javafx.fxml"
         }
     ]
 }
