@@ -84,4 +84,76 @@ public class GeslachtValidatieTest {
             // Assert
             Assert.assertFalse(result);
         }  
+
+        @Test
+    public void testOngeldigGeslachtLegeString() {
+        // Arrange
+        String userGeslacht = "";
+    
+        // Act
+        boolean result = GeslachtValidatie.validateGeslacht(userGeslacht);
+    
+        // Assert
+        Assert.assertFalse(result);
+    }
+
+    @Test
+    public void testOngeldigGeslachtNull() {
+        // Arrange
+        String userGeslacht = null;
+    
+        // Act
+        boolean result = GeslachtValidatie.validateGeslacht(userGeslacht);
+    
+        // Assert
+        Assert.assertFalse(result);
+    }
+
+    @Test
+    public void testOngeldigGeslachtKleineLetters() {
+        // Arrange
+        String userGeslacht = "m"; // Also test "v" and "x" if needed
+    
+        // Act
+        boolean result = GeslachtValidatie.validateGeslacht(userGeslacht);
+    
+        // Assert
+        Assert.assertFalse(result);
+    }
+
+    @Test
+    public void testGrensgevalGeslachtMetSpaties() {
+        // Arrange
+        String userGeslacht = " M "; // Also test " V " and " X " if needed
+    
+        // Act
+        boolean result = GeslachtValidatie.validateGeslacht(userGeslacht);
+    
+        // Assert
+        Assert.assertTrue(result);
+    }
+
+    @Test
+    public void testOngeldigGeslachtSpecialeTekens() {
+        // Arrange
+        String userGeslacht = "*";
+    
+        // Act
+        boolean result = GeslachtValidatie.validateGeslacht(userGeslacht);
+    
+        // Assert
+        Assert.assertFalse(result);
+    }
+
+    @Test
+    public void testOngeldigGeslachtCijfers() {
+        // Arrange
+        String userGeslacht = "123";
+    
+        // Act
+        boolean result = GeslachtValidatie.validateGeslacht(userGeslacht);
+    
+        // Assert
+        Assert.assertFalse(result);
+    }
 }

@@ -1,6 +1,10 @@
 package TestMethode;
 
 public class MailTools {
+//WHITEBOX TEST//
+
+
+
 
     /**
      * Validates if mailAddress is valid. It should be in the form of:
